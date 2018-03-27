@@ -7,6 +7,9 @@
  */
 namespace Kibb\Base;
 
+use Kibb\Base\Configuration\Exception\Argument;
+use Kibb\Base\Configuration\Exception\Implementation;
+
 class Configuration extends Base
 {
     /**
@@ -21,7 +24,7 @@ class Configuration extends Base
 
     protected function _getExceptionForImplementation($method)
     {
-        return new Exception\Implementation("{$method} method not implemented");
+        return new Implementation("{$method} method not implemented");
     }
 
 
@@ -31,7 +34,7 @@ class Configuration extends Base
 
         if (!$this->type)
         {
-            throw new Exception\Argument("Invalid type");
+            return new Argument("Invalid type");
         }
 
         //Events::fire("framework.configuration.initialize.after", array($this->type, $this->options));
@@ -45,7 +48,7 @@ class Configuration extends Base
                 }
             default:
                 {
-                    throw new Exception\Argument("Invalid type");
+                    return new Argument("Invalid type");
                     break;
                 }
         }

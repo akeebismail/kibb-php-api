@@ -6,7 +6,7 @@
  * Time: 6:47 PM
  */
 namespace Kibb\Base\Configuration\Exception;
-
-class Argument {
+use Kibb\Base\Core\Exception\Argument as CoreArgument;
+class Argument  extends CoreArgument{
 
 }
